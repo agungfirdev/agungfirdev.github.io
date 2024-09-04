@@ -12,14 +12,74 @@
     />
   </head>
   <body>
-    <h1 id="title">Hello, world!</h1>
-    <button class="btn btn-primary">Click Me!</button>
+    <div class="container">
+      <h1 id="title">Data Penerima Bantuan Pangan</h1>
+      <div class="d-flex gap-2">
+        <div class="form-group w-100">
+          <label for="exampleFormControlSelect1">Kecamatan</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>AMPELGADING</option>
+            <option>BANTARBOLANG</option>
+            <option>BODEH</option>
+          </select>
+        </div>
+        <div class="form-group w-100">
+          <label for="exampleFormControlSelect1">Desa</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>AMPELGADING</option>
+            <option>BANTARBOLANG</option>
+            <option>BODEH</option>
+          </select>
+        </div>
+      </div>
+      <table class="table" id="table-main">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">NO PBP</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Nama Penerima</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.bootstrap5.js"></script>
     <script>
-      $("#title").html("JQuery Installed!");
+      $.getJSON("data/KAB. PEMALANG_AGU.json", function (data) {
+        const filter = data.filter(
+          (d) => d.KECAMATAN === "AMPELGADING" && d.DESA === "AMPELGADING"
+        );
+        // filter.forEach(
+        //   ({ NO, NO_KPM, NAMA_PBP_AWAL, STATUS, PENERIMA }, index) => {
+        //     $("#table-body").append(`
+        //         <tr>
+        //             <th scope="row">${index++}</th>
+        //             <td>${NO_KPM}</td>
+        //             <td>${NAMA_PBP_AWAL}</td>
+        //             <td>${PENERIMA}</td>
+        //             <td>${STATUS}</td>
+        //         </tr>
+        //     `);
+        //   }
+        // );
+        $("#table-main").DataTable({
+          data: filter,
+          columns: [
+            { data: "NO" },
+            { data: "NO_KPM" },
+            { data: "NAMA_PBP_AWAL" },
+            { data: "NAMA_PENERIMA" },
+            { data: "STATUS" },
+          ],
+        });
+      });
     </script>
   </body>
 </html>
