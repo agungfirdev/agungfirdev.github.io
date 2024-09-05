@@ -167,7 +167,7 @@
       });
 
       $("#header-status").on("click", function () {
-        if (statusSelected >= 3) {
+        if (statusSelected >= 4) {
           statusSelected = 1;
         } else {
           statusSelected++;
@@ -178,10 +178,15 @@
         }
         if (statusSelected === 2) {
           showPbp([]);
-          showPbp(filterPbp, "PENGGANTI");
+          showPbp(filterPbp, "AWAL");
         }
 
         if (statusSelected === 3) {
+          showPbp([]);
+          showPbp(filterPbp, "PENGGANTI");
+        }
+
+        if (statusSelected === 4) {
           showPbp([]);
           showPbp(filterPbp, "PERWAKILAN");
         }
