@@ -83,7 +83,7 @@
 //   );
 // });
 
-function showPbp(filter) {
+function showPbp(filter, filterType = "SEMUA") {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
     let jumlahPerwakilan = 0;
@@ -150,26 +150,51 @@ function showPbp(filter) {
         } else {
           TEXT_STATUS = `<span class="badge rounded-pill bg-danger">BELUM UP</span>`;
         }
-        $("#table-body").append(`
-                    <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
-                        <th scope="row">${NO}</th>
-                        <td>${NO_KPM}</td>
-                        <td>${NIK_PBP_AWAL}</td>
-                        <td>${NIK_PBP_PENERIMA}</td>
-                        <td>${NAMA_PBP_AWAL}</td>
-                        <td>${NAMA_PENERIMA}</td>
-                        <td>${TEXT_STATUS}</td>
-                    </tr>
-                    <tr id="${NIK_PBP_AWAL}" class="collapse">
-                        <td colspan="4">
-                            <div class="d-flex">
-                                <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
-                                <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
-                            </div>
-                        </td>
-                   
-                    </tr>
-                `);
+        if (filterType !== "SEMUA") {
+          if (STATUS === filterType) {
+            $("#table-body").append(`
+                        <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
+                            <th scope="row">${NO}</th>
+                            <td>${NO_KPM}</td>
+                            <td>${NIK_PBP_AWAL}</td>
+                            <td>${NIK_PBP_PENERIMA}</td>
+                            <td>${NAMA_PBP_AWAL}</td>
+                            <td>${NAMA_PENERIMA}</td>
+                            <td>${TEXT_STATUS}</td>
+                        </tr>
+                        <tr id="${NIK_PBP_AWAL}" class="collapse">
+                            <td colspan="4">
+                                <div class="d-flex">
+                                    <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
+                                    <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
+                                </div>
+                            </td>
+                       
+                        </tr>
+                    `);
+          }
+        } else {
+          $("#table-body").append(`
+            <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
+                <th scope="row">${NO}</th>
+                <td>${NO_KPM}</td>
+                <td>${NIK_PBP_AWAL}</td>
+                <td>${NIK_PBP_PENERIMA}</td>
+                <td>${NAMA_PBP_AWAL}</td>
+                <td>${NAMA_PENERIMA}</td>
+                <td>${TEXT_STATUS}</td>
+            </tr>
+            <tr id="${NIK_PBP_AWAL}" class="collapse">
+                <td colspan="4">
+                    <div class="d-flex">
+                        <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
+                        <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
+                    </div>
+                </td>
+           
+            </tr>
+        `);
+        }
         $("#jumlah-pbp").html("JUMLAH |  " + filter.length);
         $("#jumlah-awal").html("AWAL |  " + jumlahAwal);
         $("#jumlah-pengganti").html("PENGGANTI |  " + jumlahPengganti);
