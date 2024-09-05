@@ -9,13 +9,31 @@
       rel="stylesheet"
     />
     <style>
-      .hidden-row {
-        padding: 0 !important;
+      * {
+        box-sizing: border-box;
+      }
+      .img-zoom-container {
+        position: relative;
+      }
+
+      .img-zoom-lens {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        /*set the size of the lens:*/
+        width: 40px;
+        height: 40px;
+      }
+
+      .img-zoom-result {
+        border: 1px solid #d4d4d4;
+        /*set the size of the result div:*/
+        width: 300px;
+        height: 300px;
       }
     </style>
   </head>
   <body>
-    <div class="p-4">
+    <div class="p-4 container">
       <h1 id="title">Data Penerima Bantuan Pangan</h1>
       <div class="d-flex gap-2">
         <div class="form-group w-100">
@@ -44,9 +62,7 @@
         </div>
       </div>
       <div class="mt-2">
-        <span class="badge rounded-pill bg-light text-dark" id="jumlah-pbp"
-          >JUMLAH</span
-        >
+        <span class="badge rounded-pill bg-info" id="jumlah-pbp">JUMLAH</span>
         <span class="badge rounded-pill bg-dark" id="jumlah-awal">AWAL</span>
         <span class="badge rounded-pill bg-success" id="jumlah-pengganti"
           >PENGGANTI</span
@@ -54,15 +70,16 @@
         <span class="badge rounded-pill bg-primary" id="jumlah-perwakilan"
           >PERWAKILAN</span
         >
+        <span class="badge rounded-pill bg-danger" id="jumlah-sisa">SISA</span>
       </div>
       <table class="table mt-4" id="table-main">
         <thead>
           <tr>
             <th scope="col" style="width: 3%">#</th>
             <th scope="col" style="width: 10%">NO PBP</th>
-            <th scope="col" style="width: 12%">NIK</th>
+            <th scope="col" style="width: 12%">NIK PBP Awal</th>
             <th scope="col" style="width: 12%">NIK Penerima</th>
-            <th scope="col">Nama</th>
+            <th scope="col">Nama PBP Awal</th>
             <th scope="col">Nama Penerima</th>
             <th scope="col">Status</th>
           </tr>
@@ -74,6 +91,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="src/show_pbp.js"></script>
+    <script src="src/zoom_image.js"></script>
 
     <script>
       let DESA = [];
@@ -107,6 +125,7 @@
             .append('<option value="whatever">Pilih dulu kecamatan..</option>')
             .val("Pilih dulu kecamatan");
           showSelectVillage("TIDAK ADA");
+          showPbp([]);
         }
       });
 
