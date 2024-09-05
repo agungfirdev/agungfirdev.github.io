@@ -163,8 +163,8 @@ function showPbp(filter) {
                     <tr id="${NIK_PBP_AWAL}" class="collapse">
                         <td colspan="4">
                             <div class="d-flex">
-                                <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp"/>
-                                <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp"/>
+                                <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
+                                <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
                             </div>
                         </td>
                    
