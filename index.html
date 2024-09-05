@@ -79,7 +79,7 @@
         >
         <span class="badge rounded-pill bg-danger" id="jumlah-sisa">SISA</span>
       </div>
-      <table class="table mt-4" id="table-main">
+      <table class="table table-hover mt-4" id="table-main">
         <thead>
           <tr>
             <th scope="col" style="width: 3%">#</th>
@@ -167,7 +167,7 @@
       });
 
       $("#header-status").on("click", function () {
-        if (statusSelected >= 4) {
+        if (statusSelected >= 5) {
           statusSelected = 1;
         } else {
           statusSelected++;
@@ -189,6 +189,11 @@
         if (statusSelected === 4) {
           showPbp([]);
           showPbp(filterPbp, "PERWAKILAN");
+        }
+
+        if (statusSelected === 5) {
+          showPbp([]);
+          showPbp(filterPbp, "");
         }
       });
     </script>
