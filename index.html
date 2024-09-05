@@ -114,7 +114,6 @@
             .remove()
             .end()
             .append('<option value="whatever">Pilih desa..</option>');
-          showSelectVillage("TIDAK ADA");
           showSelectVillage(this.value);
         } else {
           $("#select-desa").prop("disabled", true);
@@ -144,6 +143,8 @@
             (pbp) =>
               pbp.KECAMATAN === kecamatanSelected && pbp.DESA === this.value
           );
+          console.log(kecamatanSelected, filterPbp);
+          showPbp([]);
           showPbp(filterPbp);
         } else {
           showSelectVillage("TIDAK ADA");
