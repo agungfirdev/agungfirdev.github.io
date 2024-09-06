@@ -114,10 +114,6 @@
         DESA = [...data];
       });
 
-      $.getJSON("data/KAB. PEMALANG_AGU.json", function (data) {
-        PBP = [...data];
-      });
-
       $("#select-kecamatan").on("change", function () {
         if (this.value !== "Pilih Kecamatan") {
           kecamatanSelected = this.value;
@@ -152,14 +148,23 @@
 
       $("#select-desa").on("change", function () {
         desaSelected = this.value;
+
         if (desaSelected !== "Pilih desa..") {
-          filterPbp = PBP.filter(
-            (pbp) =>
-              pbp.KECAMATAN === kecamatanSelected && pbp.DESA === desaSelected
+          $.getJSON(
+            `data/DATA_PENERIMA/KAB. PEMALANG_${kecamatanSelected}_${desaSelected}_AGU.json`,
+            function (data) {
+              PBP = [...data];
+
+              filterPbp = PBP.filter(
+                (pbp) =>
+                  pbp.KECAMATAN === kecamatanSelected &&
+                  pbp.DESA === desaSelected
+              );
+              $("#select-filter-status").attr("disabled", false);
+              showPbp([]);
+              showPbp(filterPbp);
+            }
           );
-          $("#select-filter-status").attr("disabled", false);
-          showPbp([]);
-          showPbp(filterPbp);
         } else {
           showSelectVillage("TIDAK ADA");
           showPbp([]);
