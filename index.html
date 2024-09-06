@@ -102,7 +102,30 @@
     <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
     <script src="src/show_pbp.js"></script>
     <script src="src/zoom_image.js"></script>
-
+    <script>
+      $.ajax({
+        type: "GET",
+        url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
+        dataType: "json",
+        success: function (count) {
+          console.log("COUNT", count);
+          $.ajax({
+            type: "PUT",
+            url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
+            data: JSON.stringify(count + 1),
+            success: function (data) {
+              console.log("Data saved successfully!");
+            },
+            error: function (xhr, status, error) {
+              console.log("Error saving data:", error);
+            },
+          });
+        },
+        error: function (xhr, status, error) {
+          console.log("Error retrieving data:", error);
+        },
+      });
+    </script>
     <script>
       let DESA = [];
       let PBP = [];
