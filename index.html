@@ -224,6 +224,35 @@
           showPbp(filterPbp, "");
         }
       });
+
+      $.ajax({
+        type: "POST",
+        url: "https://astridjplb.id/w/10/report/lap_pbp_tampil.php",
+        data: {
+          userid: "A110010001",
+          kdkantor: "11001",
+          namakantor: "JPLB-CABANG JATENG",
+          level: "10",
+          tahap: "47 | AGUSTUS",
+          propinsi: "JAWA TENGAH",
+          kota: "KAB. PEMALANG",
+          kecamatan: kecamatanSelected,
+          kelurahan: desaSelected,
+        },
+        crossDomain: true,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Headers":
+            "Content-Type, Accept, Origin, X-Requested-With",
+        },
+        success: function (data) {
+          console.log("Data sent successfully:", data);
+        },
+        error: function (xhr, status, error) {
+          console.log("Error:", error);
+        },
+      });
     </script>
   </body>
 </html>
