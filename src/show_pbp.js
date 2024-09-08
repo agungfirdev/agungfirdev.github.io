@@ -142,13 +142,13 @@ function showPbp(filter, filterType = "SEMUA") {
         let TEXT_STATUS = "";
 
         if (STATUS === "AWAL") {
-          TEXT_STATUS = `<span class="badge rounded-pill bg-dark">AWAL</span>`;
+          TEXT_STATUS = `<span class="dot bg-dark"></span>`;
         } else if (STATUS === "PENGGANTI") {
-          TEXT_STATUS = `<span class="badge rounded-pill bg-success">PENGGANTI</span>`;
+          TEXT_STATUS = `<span class="dot bg-success"></span>`;
         } else if (STATUS === "PERWAKILAN") {
-          TEXT_STATUS = `<span class="badge rounded-pill bg-primary">PERWAKILAN</span>`;
+          TEXT_STATUS = `<span class="dot bg-primary"></span>`;
         } else {
-          TEXT_STATUS = `<span class="badge rounded-pill bg-danger">BELUM UP</span>`;
+          TEXT_STATUS = `<span class="dot bg-danger"></span>`;
         }
         if (filterType !== "SEMUA") {
           if (STATUS === filterType) {
@@ -160,7 +160,7 @@ function showPbp(filter, filterType = "SEMUA") {
                             <td>${NIK_PBP_PENERIMA}</td>
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}</td>
-                            <td>${TEXT_STATUS}</td>
+                            <td class="align-middle">${TEXT_STATUS}</td>
                         </tr>
                         <tr id="${NIK_PBP_AWAL}" class="collapse">
                             <td colspan="4">
@@ -182,7 +182,7 @@ function showPbp(filter, filterType = "SEMUA") {
                 <td>${NIK_PBP_PENERIMA}</td>
                 <td>${NAMA_PBP_AWAL}</td>
                 <td>${NAMA_PENERIMA}</td>
-                <td>${TEXT_STATUS}</td>
+                <td class="align-middle">${TEXT_STATUS}</td>
             </tr>
             <tr id="${NIK_PBP_AWAL}" class="collapse">
                 <td colspan="4">

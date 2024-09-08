@@ -37,6 +37,13 @@
         width: 300px;
         height: 300px;
       }
+
+      .dot {
+        width: 15px;
+        height: 15px;
+        display: block;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
@@ -103,28 +110,28 @@
     <script src="src/show_pbp.js"></script>
     <script src="src/zoom_image.js"></script>
     <script>
-      $.ajax({
-        type: "GET",
-        url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
-        dataType: "json",
-        success: function (count) {
-          console.log("COUNT", count);
-          $.ajax({
-            type: "PUT",
-            url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
-            data: JSON.stringify(count + 1),
-            success: function (data) {
-              console.log("Data saved successfully!");
-            },
-            error: function (xhr, status, error) {
-              console.log("Error saving data:", error);
-            },
-          });
-        },
-        error: function (xhr, status, error) {
-          console.log("Error retrieving data:", error);
-        },
-      });
+      // $.ajax({
+      //   type: "GET",
+      //   url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
+      //   dataType: "json",
+      //   success: function (count) {
+      //     console.log("COUNT", count);
+      //     $.ajax({
+      //       type: "PUT",
+      //       url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
+      //       data: JSON.stringify(count + 1),
+      //       success: function (data) {
+      //         console.log("Data saved successfully!");
+      //       },
+      //       error: function (xhr, status, error) {
+      //         console.log("Error saving data:", error);
+      //       },
+      //     });
+      //   },
+      //   error: function (xhr, status, error) {
+      //     console.log("Error retrieving data:", error);
+      //   },
+      // });
     </script>
     <script>
       let DESA = [];
@@ -225,34 +232,34 @@
         }
       });
 
-      $.ajax({
-        type: "POST",
-        url: "http://astridjplb.id/w/10/report/lap_pbp_tampil.php",
-        data: {
-          userid: "A110010001",
-          kdkantor: "11001",
-          namakantor: "JPLB-CABANG JATENG",
-          level: "10",
-          tahap: "47 | AGUSTUS",
-          propinsi: "JAWA TENGAH",
-          kota: "KAB. PEMALANG",
-          kecamatan: kecamatanSelected,
-          kelurahan: desaSelected,
-        },
-        crossDomain: true,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers":
-            "Content-Type, Accept, Origin, X-Requested-With, Access-Control-Allow-Methods",
-        },
-        success: function (data) {
-          console.log("Data sent successfully:", data);
-        },
-        error: function (xhr, status, error) {
-          console.log("Error:", error);
-        },
-      });
+      // $.ajax({
+      //   type: "POST",
+      //   url: "http://astridjplb.id/w/10/report/lap_pbp_tampil.php",
+      //   data: {
+      //     userid: "A110010001",
+      //     kdkantor: "11001",
+      //     namakantor: "JPLB-CABANG JATENG",
+      //     level: "10",
+      //     tahap: "47 | AGUSTUS",
+      //     propinsi: "JAWA TENGAH",
+      //     kota: "KAB. PEMALANG",
+      //     kecamatan: kecamatanSelected,
+      //     kelurahan: desaSelected,
+      //   },
+      //   crossDomain: true,
+      //   headers: {
+      //     "Access-Control-Allow-Origin": "https://astridjplb.id",
+      //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      //     "Access-Control-Allow-Headers":
+      //       "Content-Type, Accept, Origin, X-Requested-With, Access-Control-Allow-Methods",
+      //   },
+      //   success: function (data) {
+      //     console.log("Data sent successfully:", data);
+      //   },
+      //   error: function (xhr, status, error) {
+      //     console.log("Error:", error);
+      //   },
+      // });
     </script>
   </body>
 </html>
