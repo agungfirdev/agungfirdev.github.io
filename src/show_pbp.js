@@ -141,13 +141,11 @@ function showPbp(filter, filterType = "SEMUA") {
 
         let TEXT_STATUS = "";
 
-        if (STATUS === "AWAL") {
-          TEXT_STATUS = `<span class="dot bg-dark"></span>`;
-        } else if (STATUS === "PENGGANTI") {
+        if (STATUS === "PENGGANTI") {
           TEXT_STATUS = `<span class="dot bg-success"></span>`;
         } else if (STATUS === "PERWAKILAN") {
           TEXT_STATUS = `<span class="dot bg-primary"></span>`;
-        } else {
+        } else if (STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>`;
         }
         if (filterType !== "SEMUA") {
