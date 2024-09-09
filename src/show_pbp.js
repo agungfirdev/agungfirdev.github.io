@@ -143,15 +143,15 @@ function showPbp(filter, filterType = null, open = false) {
         let TEXT_STATUS = "";
 
         if (STATUS === "PENGGANTI") {
-          TEXT_STATUS = `<span class="dot bg-success"></span>${
+          TEXT_STATUS = `<span class="dot bg-success"></span>&nbsp;${
             ALASAN !== undefined ? ALASAN : ""
           }`;
         } else if (STATUS === "PERWAKILAN") {
-          TEXT_STATUS = `<span class="dot bg-primary"></span>${
+          TEXT_STATUS = `<span class="dot bg-primary"></span>&nbsp;${
             ALASAN !== undefined ? ALASAN : ""
           }`;
         } else if (STATUS === "") {
-          TEXT_STATUS = `<span class="dot bg-danger"></span>${
+          TEXT_STATUS = `<span class="dot bg-danger"></span>&nbsp;${
             ALASAN !== undefined ? ALASAN : ""
           }`;
         }
@@ -165,7 +165,7 @@ function showPbp(filter, filterType = null, open = false) {
                             <td>${NIK_PBP_PENERIMA}</td>
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}</td>
-                            <td class="align-middle">${TEXT_STATUS}</td>
+                            <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
                         <tr id="${NIK_PBP_AWAL}" class="collapse">
                             <td colspan="4">
@@ -187,7 +187,7 @@ function showPbp(filter, filterType = null, open = false) {
                 <td>${NIK_PBP_PENERIMA}</td>
                 <td>${NAMA_PBP_AWAL}</td>
                 <td>${NAMA_PENERIMA}</td>
-                <td class="align-middle">${TEXT_STATUS}</td>
+                <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
             </tr>
             <tr id="${NIK_PBP_AWAL}" class="collapse ${open ? "show" : ""}">
                 <td colspan="4">
