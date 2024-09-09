@@ -144,15 +144,15 @@ function showPbp(filter, filterType = null, open = false) {
 
         if (STATUS === "PENGGANTI") {
           TEXT_STATUS = `<span class="dot bg-success"></span>&nbsp;${
-            ALASAN !== undefined ? ALASAN : ""
+            ALASAN !== undefined ? ALASAN.toUpperCase() : ""
           }`;
         } else if (STATUS === "PERWAKILAN") {
           TEXT_STATUS = `<span class="dot bg-primary"></span>&nbsp;${
-            ALASAN !== undefined ? ALASAN : ""
+            ALASAN !== undefined ? ALASAN.toUpperCase() : ""
           }`;
         } else if (STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>&nbsp;${
-            ALASAN !== undefined ? ALASAN : ""
+            ALASAN !== undefined ? ALASAN.toUpperCase() : ""
           }`;
         }
         if (filterType !== null) {
