@@ -76,15 +76,36 @@
         </div>
       </div>
       <div class="mt-2">
-        <span class="badge rounded-pill bg-info" id="jumlah-pbp">JUMLAH</span>
-        <span class="badge rounded-pill bg-dark" id="jumlah-awal">AWAL</span>
-        <span class="badge rounded-pill bg-success" id="jumlah-pengganti"
-          >PENGGANTI</span
-        >
-        <span class="badge rounded-pill bg-primary" id="jumlah-perwakilan"
-          >PERWAKILAN</span
-        >
-        <span class="badge rounded-pill bg-danger" id="jumlah-sisa">SISA</span>
+        <div class="d-flex justify-content-between">
+          <div>
+            <span class="badge rounded-pill bg-info" id="jumlah-pbp"
+              >JUMLAH</span
+            >
+            <span class="badge rounded-pill bg-dark" id="jumlah-awal"
+              >AWAL</span
+            >
+            <span class="badge rounded-pill bg-success" id="jumlah-pengganti"
+              >PENGGANTI</span
+            >
+            <span class="badge rounded-pill bg-primary" id="jumlah-perwakilan"
+              >PERWAKILAN</span
+            >
+            <span class="badge rounded-pill bg-danger" id="jumlah-sisa"
+              >SISA</span
+            >
+          </div>
+          <div>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="check-open-foto-all"
+            />
+            <label class="form-check-label" for="check-open-foto-all">
+              Buka semua foto
+            </label>
+          </div>
+        </div>
       </div>
       <table class="table table-hover mt-4" id="table-main">
         <thead>
@@ -202,6 +223,7 @@
       });
 
       $("#header-status").on("click", function () {
+        const show = $("#check-open-foto-all").is(":checked");
         if (statusSelected >= 5) {
           statusSelected = 1;
         } else {
@@ -209,27 +231,32 @@
         }
         if (statusSelected === 1) {
           showPbp([]);
-          showPbp(filterPbp);
+          showPbp(filterPbp, null, show);
         }
         if (statusSelected === 2) {
           showPbp([]);
-          showPbp(filterPbp, "AWAL");
+          showPbp(filterPbp, "AWAL", show);
         }
 
         if (statusSelected === 3) {
           showPbp([]);
-          showPbp(filterPbp, "PENGGANTI");
+          showPbp(filterPbp, "PENGGANTI", show);
         }
 
         if (statusSelected === 4) {
           showPbp([]);
-          showPbp(filterPbp, "PERWAKILAN");
+          showPbp(filterPbp, "PERWAKILAN", show);
         }
 
         if (statusSelected === 5) {
           showPbp([]);
-          showPbp(filterPbp, "");
+          showPbp(filterPbp, "", show);
         }
+      });
+
+      $("#check-open-foto-all").change(function () {
+        showPbp([]);
+        showPbp(filterPbp, null, this.checked);
       });
 
       // $.ajax({

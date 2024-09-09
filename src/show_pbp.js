@@ -83,7 +83,7 @@
 //   );
 // });
 
-function showPbp(filter, filterType = "SEMUA") {
+function showPbp(filter, filterType = null, open = false) {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
     let jumlahPerwakilan = 0;
@@ -148,7 +148,7 @@ function showPbp(filter, filterType = "SEMUA") {
         } else if (STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>`;
         }
-        if (filterType !== "SEMUA") {
+        if (filterType !== null) {
           if (STATUS === filterType) {
             $("#table-body").append(`
                         <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
@@ -182,7 +182,7 @@ function showPbp(filter, filterType = "SEMUA") {
                 <td>${NAMA_PENERIMA}</td>
                 <td class="align-middle">${TEXT_STATUS}</td>
             </tr>
-            <tr id="${NIK_PBP_AWAL}" class="collapse">
+            <tr id="${NIK_PBP_AWAL}" class="collapse ${open ? "show" : ""}">
                 <td colspan="4">
                     <div class="d-flex">
                         <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
