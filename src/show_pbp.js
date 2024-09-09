@@ -104,6 +104,7 @@ function showPbp(filter, filterType = null, open = false) {
           KECAMATAN,
           DESA,
           FOTO_URL,
+          ALASAN,
         },
         index
       ) => {
@@ -142,11 +143,17 @@ function showPbp(filter, filterType = null, open = false) {
         let TEXT_STATUS = "";
 
         if (STATUS === "PENGGANTI") {
-          TEXT_STATUS = `<span class="dot bg-success"></span>`;
+          TEXT_STATUS = `<span class="dot bg-success"></span>${
+            ALASAN !== undefined ? ALASAN : ""
+          }`;
         } else if (STATUS === "PERWAKILAN") {
-          TEXT_STATUS = `<span class="dot bg-primary"></span>`;
+          TEXT_STATUS = `<span class="dot bg-primary"></span>${
+            ALASAN !== undefined ? ALASAN : ""
+          }`;
         } else if (STATUS === "") {
-          TEXT_STATUS = `<span class="dot bg-danger"></span>`;
+          TEXT_STATUS = `<span class="dot bg-danger"></span>${
+            ALASAN !== undefined ? ALASAN : ""
+          }`;
         }
         if (filterType !== null) {
           if (STATUS === filterType) {
