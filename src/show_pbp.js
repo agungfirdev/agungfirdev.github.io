@@ -164,12 +164,14 @@ function showPbp(filter, filterType = null, open = false) {
                             <td>${NIK_PBP_AWAL}</td>
                             <td>${NIK_PBP_PENERIMA}</td>
                             <td>${NAMA_PBP_AWAL}</td>
-                            <td>${NAMA_PENERIMA}</td>
-                            <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}${
-              PEKERJAAN === undefined
-                ? ""
-                : " (" + PEKERJAAN.toUpperCase() + ")"
-            }</div></td>
+                            <td>${NAMA_PENERIMA}
+                            ${
+                              PEKERJAAN === undefined
+                                ? ""
+                                : " (" + PEKERJAAN.toUpperCase() + ")"
+                            }
+                            </td>
+                            <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
                         <tr id="${NIK_PBP_AWAL}" class="collapse">
                             <td colspan="4">
@@ -190,10 +192,14 @@ function showPbp(filter, filterType = null, open = false) {
                 <td>${NIK_PBP_AWAL}</td>
                 <td>${NIK_PBP_PENERIMA}</td>
                 <td>${NAMA_PBP_AWAL}</td>
-                <td>${NAMA_PENERIMA}</td>
-                <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}${
-            PEKERJAAN === undefined ? "" : " (" + PEKERJAAN.toUpperCase() + ")"
-          }</div></td>
+                <td>${NAMA_PENERIMA}
+                ${
+                  PEKERJAAN === undefined
+                    ? ""
+                    : " (" + PEKERJAAN.toUpperCase() + ")"
+                }
+                </td>
+                <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
             </tr>
             <tr id="${NIK_PBP_AWAL}" class="collapse ${open ? "show" : ""}">
                 <td colspan="4">
