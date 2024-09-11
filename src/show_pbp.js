@@ -99,7 +99,7 @@ function showPbp(filter, filterType = null, open = false) {
           NAMA_PBP_AWAL,
           NAMA_PENERIMA,
           STATUS,
-          PENERIMA,
+          PEKERJAAN,
           KOTA,
           KECAMATAN,
           DESA,
@@ -165,7 +165,7 @@ function showPbp(filter, filterType = null, open = false) {
                             <td>${NIK_PBP_PENERIMA}</td>
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}</td>
-                            <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
+                            <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}(${PEKERJAAN.toUpperCase()})</div></td>
                         </tr>
                         <tr id="${NIK_PBP_AWAL}" class="collapse">
                             <td colspan="4">
@@ -187,7 +187,7 @@ function showPbp(filter, filterType = null, open = false) {
                 <td>${NIK_PBP_PENERIMA}</td>
                 <td>${NAMA_PBP_AWAL}</td>
                 <td>${NAMA_PENERIMA}</td>
-                <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
+                <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}(${PEKERJAAN.toUpperCase()})</div></td>
             </tr>
             <tr id="${NIK_PBP_AWAL}" class="collapse ${open ? "show" : ""}">
                 <td colspan="4">
