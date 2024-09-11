@@ -166,7 +166,9 @@ function showPbp(filter, filterType = null, open = false) {
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}</td>
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}${
-              PEKERJAAN === undefined ? "" : "(" + PEKERJAAN.toUpperCase() + ""
+              PEKERJAAN === undefined
+                ? ""
+                : " (" + PEKERJAAN.toUpperCase() + ")"
             }</div></td>
                         </tr>
                         <tr id="${NIK_PBP_AWAL}" class="collapse">
@@ -190,7 +192,7 @@ function showPbp(filter, filterType = null, open = false) {
                 <td>${NAMA_PBP_AWAL}</td>
                 <td>${NAMA_PENERIMA}</td>
                 <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}${
-            PEKERJAAN === undefined ? "" : "(" + PEKERJAAN.toUpperCase() + ""
+            PEKERJAAN === undefined ? "" : " (" + PEKERJAAN.toUpperCase() + ")"
           }</div></td>
             </tr>
             <tr id="${NIK_PBP_AWAL}" class="collapse ${open ? "show" : ""}">
