@@ -152,7 +152,7 @@ function showPbp(filter, filterType = null, open = false) {
           }`;
         } else if (STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>&nbsp;${
-            ALASAN !== undefined ? ALASAN.toUpperCase() : ""
+            ALASAN !== undefined ? ALASAN.toUpperCase() : "BELUM DISERAHKAN"
           }`;
         }
         if (filterType !== null) {
