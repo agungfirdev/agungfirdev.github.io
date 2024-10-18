@@ -50,7 +50,7 @@
     <div class="p-4">
       <h1 id="title">Data Penerima Bantuan Pangan</h1>
       <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-4">
           <div class="form-group">
             <label for="select-alokasi">Alokasi</label>
             <select class="form-control" id="select-alokasi">
@@ -60,10 +60,10 @@
             </select>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-4">
           <div class="form-group">
             <label for="select-kecamatan">Kecamatan</label>
-            <select class="form-control" id="select-kecamatan">
+            <select class="form-control" id="select-kecamatan" disabled>
               <option>Pilih Kecamatan</option>
               <option value="AMPELGADING">AMPELGADING</option>
               <option value="BANTARBOLANG">BANTARBOLANG</option>
@@ -82,7 +82,7 @@
             </select>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-4">
           <div class="form-group">
             <label for="select-desa">Desa</label>
             <select class="form-control" id="select-desa" disabled></select>
@@ -150,7 +150,6 @@
         url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
         dataType: "json",
         success: function (count) {
-          console.log("COUNT", count);
           $.ajax({
             type: "PUT",
             url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
@@ -175,8 +174,24 @@
       let desaSelected = null;
       let statusSelected = 1;
       let filterPbp = [];
+      let alokasi = null;
+      let alokasiSelected = null;
       $.getJSON("data/DESA.json", function (data) {
         DESA = [...data];
+      });
+
+      $("#select-alokasi").on("change", function () {
+        console.log(this.value);
+        $("#select-kecamatan").prop("disabled", false);
+        alokasi = this.value;
+        if (alokasi === null) {
+          $("#select-alokasi").prop("disable", true);
+          alokasiSelected = null;
+        } else if (alokasi === "AGUSTUS") {
+          alokasiSelected = "AGU";
+        } else if (alokasi === "OKTOBER") {
+          alokasiSelected = "OKT";
+        }
       });
 
       $("#select-kecamatan").on("change", function () {
@@ -216,7 +231,7 @@
 
         if (desaSelected !== "Pilih desa..") {
           $.getJSON(
-            `data/DATA_PENERIMA/KAB. PEMALANG_${kecamatanSelected}_${desaSelected}_AGU.json`,
+            `data/DATA_PENERIMA/KAB. PEMALANG_${kecamatanSelected}_${desaSelected}_${alokasiSelected}.json`,
             function (data) {
               PBP = [...data];
 
