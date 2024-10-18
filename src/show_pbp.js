@@ -83,7 +83,7 @@
 //   );
 // });
 
-function showPbp(filter, filterType = null, open = false) {
+function showPbp(filter, filterType = null, open = false, alokasi = null) {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
     let jumlahPerwakilan = 0;
@@ -123,8 +123,14 @@ function showPbp(filter, filterType = null, open = false) {
         if (STATUS === "") {
           jumlahSisa++;
         }
+        let kodeAlokasi = null;
+        if (alokasiSelected === "AGU") {
+          kodeAlokasi = "47";
+        } else if (alokasiSelected === "OKT") {
+          kodeAlokasi = "48";
+        }
 
-        const url = `https://astridjplb.id/files/img/dokumen/47/JAWATENGAH/${KOTA.replace(
+        const url = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
           ""
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
@@ -132,7 +138,7 @@ function showPbp(filter, filterType = null, open = false) {
           ""
         )}/${FOTO_URL.split(".")[0]}.jpg`;
 
-        const urlKtp = `https://astridjplb.id/files/img/dokumen/47/JAWATENGAH/${KOTA.replace(
+        const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
           ""
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
