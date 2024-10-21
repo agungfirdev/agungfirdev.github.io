@@ -138,6 +138,45 @@
         <tbody id="table-body"></tbody>
       </table>
     </div>
+    <style>
+      .toast {
+        display: none; /* Hidden by default */
+        position: fixed; /* Sit on top of the screen */
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Black background with 50% opacity */
+        color: white; /* Text color */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+        flex-direction: column; /* Stack items vertically */
+        z-index: 1000; /* Stay on top */
+        animation: fadeIn 0.5s, fadeOut 0.5s 4.5s; /* Fade in and out */
+        display: flex; /* Use flexbox for centering */
+      }
+
+      .toast-image {
+        max-width: 80%; /* Adjust image size */
+        border-radius: 10px; /* Rounded corners */
+        margin-bottom: 20px; /* Space between image and text */
+      }
+    </style>
+    <div id="toast" class="toast">
+      <img src="./img/image.png" alt="Image" class="toast-image" />
+    </div>
+    <script>
+      const toast = document.getElementById("toast");
+      toast.style.display = "flex"; // Show the toast
+      setTimeout(() => {
+        toast.style.display = "none"; // Hide the toast after 5 seconds
+      }, 3000); // 5000 milliseconds = 5 seconds
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
