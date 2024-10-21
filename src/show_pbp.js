@@ -136,7 +136,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/${FOTO_URL.split(".")[0]}.jpg`;
+        )}/2PBP_${FOTO_URL.split(".")[0]}.jpg`;
 
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
@@ -144,7 +144,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/${FOTO_URL.split(".")[0]}_ktp.jpg`;
+        )}/2PBP_${FOTO_URL.split(".")[0]}_ktp.jpg`;
 
         let TEXT_STATUS = "";
 
