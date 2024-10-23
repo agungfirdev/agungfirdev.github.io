@@ -45,6 +45,7 @@
         border-radius: 50%;
       }
     </style>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body>
     <div class="p-4">
@@ -121,7 +122,10 @@
           </div>
         </div>
       </div>
-      <table class="table table-hover mt-4 table-responsive" id="table-main">
+      <table
+        class="table table-hover mt-4 table-responsive d-none"
+        id="table-main"
+      >
         <thead>
           <tr>
             <th scope="col" style="width: 3%">#</th>
@@ -170,12 +174,35 @@
     <div id="toast" class="toast">
       <img src="./img/image.png" alt="Image" class="toast-image" />
     </div>
+
+    <div id="toast-loading" class="toast">
+      <lottie-player
+        src="./lottie/loading.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
     <script>
       const toast = document.getElementById("toast");
       toast.style.display = "flex"; // Show the toast
       setTimeout(() => {
         toast.style.display = "none"; // Hide the toast after 5 seconds
       }, 2000); // 5000 milliseconds = 5 seconds
+      setTimeout(() => {
+        $("#table-main").removeClass("d-none");
+      }, 4000); // 5000 milliseconds = 5 seconds
+
+      const loading = document.getElementById("toast-loading");
+      function showloading() {
+        loading.style.display = "flex";
+      }
+
+      function hideloading() {
+        loading.style.display = "none";
+      }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
@@ -240,6 +267,7 @@
       });
 
       $("#select-kecamatan").on("change", function () {
+        showPbp([]);
         if (this.value !== "Pilih Kecamatan") {
           kecamatanSelected = this.value;
           $("#select-desa").prop("disabled", false);
@@ -272,12 +300,15 @@
       }
 
       $("#select-desa").on("change", function () {
+        showPbp([]);
         desaSelected = this.value;
 
         if (desaSelected !== "Pilih desa..") {
+          showloading();
           $.getJSON(
             `data/DATA_PENERIMA/KAB. PEMALANG_${kecamatanSelected}_${desaSelected}_${alokasiSelected}.json`,
             function (data) {
+              hideloading();
               PBP = [...data];
 
               filterPbp = PBP.filter(
