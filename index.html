@@ -255,6 +255,7 @@
       let filterPbp = [];
       let alokasi = null;
       let alokasiSelected = null;
+      let isShow = false;
       $.getJSON("data/DESA.json", function (data) {
         showloading();
         DESA = [...data];
@@ -283,6 +284,7 @@
 
       $("#select-kecamatan").on("change", function () {
         showPbp([]);
+        statusSelected = 1;
         if (this.value !== "Pilih Kecamatan") {
           kecamatanSelected = this.value;
           $("#select-desa").prop("disabled", false);
@@ -317,6 +319,7 @@
       $("#select-desa").on("change", function () {
         showPbp([]);
         desaSelected = this.value;
+        statusSelected = 1;
 
         if (desaSelected !== "Pilih desa..") {
           showloading();
@@ -343,40 +346,39 @@
       });
 
       $("#header-status").on("click", function () {
-        const show = $("#check-open-foto-all").is(":checked");
         if (statusSelected >= 5) {
           statusSelected = 1;
         } else {
           statusSelected++;
         }
+        showPBP();
+      });
+
+      function showPBP() {
+        showPbp([]);
         if (statusSelected === 1) {
-          showPbp([]);
-          showPbp(filterPbp, null, show);
+          showPbp(filterPbp, null, isShow);
         }
         if (statusSelected === 2) {
-          showPbp([]);
-          showPbp(filterPbp, "AWAL", show);
+          showPbp(filterPbp, "AWAL", isShow);
         }
 
         if (statusSelected === 3) {
-          showPbp([]);
-          showPbp(filterPbp, "PENGGANTI", show);
+          showPbp(filterPbp, "PENGGANTI", isShow);
         }
 
         if (statusSelected === 4) {
-          showPbp([]);
-          showPbp(filterPbp, "PERWAKILAN", show);
+          showPbp(filterPbp, "PERWAKILAN", isShow);
         }
 
         if (statusSelected === 5) {
-          showPbp([]);
-          showPbp(filterPbp, "", show);
+          showPbp(filterPbp, "", isShow);
         }
-      });
+      }
 
       $("#check-open-foto-all").change(function () {
-        showPbp([]);
-        showPbp(filterPbp, null, this.checked);
+        isShow = this.checked;
+        showPBP();
       });
 
       // $.ajax({

@@ -179,7 +179,9 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
                             </td>
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
-                        <tr id="${NIK_PBP_AWAL}" class="collapse">
+                        <tr id="${NIK_PBP_AWAL}" class="collapse ${
+              open ? "show" : ""
+            }">
                             <td colspan="4">
                                 <div class="d-flex">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
