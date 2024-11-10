@@ -83,6 +83,29 @@
 //   );
 // });
 
+let rotation = 0;
+function rotateImage(id) {
+  rotation += 90; // Increase rotation by 90 degrees
+  console.log($(id).attr("id"));
+  // $("#" + $(id).attr("id")).css({
+  //   "-webkit-transform": "rotate(" + rotation + "deg)",
+  //   "-moz-transform": "rotate(" + rotation + "deg)",
+  //   transform: "rotate(" + rotation + "deg)",
+  // });
+  $("#" + $(id).attr("id")).animate(
+    { transform: rotation },
+    {
+      step: function (rotation, fx) {
+        $(this).css({
+          "-webkit-transform": "rotate(" + rotation + "deg)",
+          "-moz-transform": "rotate(" + rotation + "deg)",
+          transform: "rotate(" + rotation + "deg)",
+        });
+      },
+    }
+  );
+}
+
 function showPbp(filter, filterType = null, open = false, alokasi = null) {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
@@ -213,7 +236,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
                 <td colspan="4">
                     <div class="d-flex">
                         <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
-                        <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
+                        <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain" onclick="rotateImage(K${NIK_PBP_AWAL})"/>
                     </div>
                 </td>
            
