@@ -85,25 +85,28 @@
 
 let rotation = 0;
 function rotateImage(id) {
-  rotation += 90; // Increase rotation by 90 degrees
-  console.log($(id).attr("id"));
-  // $("#" + $(id).attr("id")).css({
-  //   "-webkit-transform": "rotate(" + rotation + "deg)",
-  //   "-moz-transform": "rotate(" + rotation + "deg)",
-  //   transform: "rotate(" + rotation + "deg)",
-  // });
-  $("#" + $(id).attr("id")).animate(
-    { transform: rotation },
-    {
-      step: function (rotation, fx) {
-        $(this).css({
-          "-webkit-transform": "rotate(" + rotation + "deg)",
-          "-moz-transform": "rotate(" + rotation + "deg)",
-          transform: "rotate(" + rotation + "deg)",
-        });
-      },
-    }
-  );
+  if (rotation === 360) {
+    rotation = 0;
+  } else {
+    rotation += 90; // Increase rotation by 90 degrees
+  }
+  $("#" + $(id).attr("id")).css({
+    "-webkit-transform": "rotate(" + rotation + "deg)",
+    "-moz-transform": "rotate(" + rotation + "deg)",
+    transform: "rotate(" + rotation + "deg)",
+  });
+  // $("#" + $(id).attr("id")).animate(
+  //   { transform: rotation },
+  //   {
+  //     step: function (rotation, fx) {
+  //       $(this).css({
+  //         "-webkit-transform": "rotate(" + rotation + "deg)",
+  //         "-moz-transform": "rotate(" + rotation + "deg)",
+  //         transform: "rotate(" + rotation + "deg)",
+  //       });
+  //     },
+  //   }
+  // );
 }
 
 function showPbp(filter, filterType = null, open = false, alokasi = null) {
