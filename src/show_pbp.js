@@ -85,11 +85,7 @@
 
 let rotation = 0;
 function rotateImage(id) {
-  if (rotation === 360) {
-    rotation = 0;
-  } else {
-    rotation += 90; // Increase rotation by 90 degrees
-  }
+  rotation += 90; // Increase rotation by 90 degrees
   $("#" + $(id).attr("id")).css({
     "-webkit-transform": "rotate(" + rotation + "deg)",
     "-moz-transform": "rotate(" + rotation + "deg)",
