@@ -111,6 +111,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
     let jumlahPerwakilan = 0;
     let jumlahSisa = 0;
     let jumlahAwal = 0;
+    let jumlah1KK = 0;
     filter.forEach(
       (
         {
@@ -130,6 +131,14 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         },
         index
       ) => {
+        if (
+          NAMA_PBP_AWAL !== NAMA_PENERIMA &&
+          STATUS !== "PERWAKILAN" &&
+          STATUS !== "PENGGANTI"
+        ) {
+          jumlah1KK++;
+        }
+
         if (STATUS === "PENGGANTI") {
           jumlahPengganti++;
         }
@@ -187,16 +196,13 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           if (STATUS === filterType) {
             $("#table-body").append(`
                         <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" class="${
-              NIK_PBP_AWAL !== NIK_PBP_PENERIMA ||
-              NAMA_PBP_AWAL !== NAMA_PENERIMA
-                ? "text-danger"
-                : ""
+              NAMA_PBP_AWAL !== NAMA_PENERIMA ? "bg-secondary" : ""
             }">
                             <th scope="row">${NO}</th>
                             <td>${NO_KPM}</td>
                             <td class="${
                               NIK_PBP_AWAL !== NIK_PBP_PENERIMA
-                                ? "text-danger font-weight-boold"
+                                ? "text-danger font-weight-bold"
                                 : ""
                             }">${NIK_PBP_AWAL}</td>
                             <td>${NIK_PBP_PENERIMA}</td>
@@ -226,9 +232,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         } else {
           $("#table-body").append(`
             <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" class="${
-            NIK_PBP_AWAL !== NIK_PBP_PENERIMA || NAMA_PBP_AWAL !== NAMA_PENERIMA
-              ? "text-danger"
-              : ""
+            NAMA_PBP_AWAL !== NAMA_PENERIMA ? "bg-secondary" : ""
           }">
                 <th scope="row">${NO}</th>
                 <td>${NO_KPM}</td>
@@ -265,7 +269,9 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         $("#jumlah-awal").html("AWAL |  " + jumlahAwal);
         $("#jumlah-pengganti").html("PENGGANTI |  " + jumlahPengganti);
         $("#jumlah-perwakilan").html("PERWAKILAN |  " + jumlahPerwakilan);
+        $("#jumlah-1kk").html("1KK |  " + jumlah1KK);
         $("#jumlah-sisa").html("SISA |  " + jumlahSisa);
+        console.log(jumlah1KK);
       }
     );
   } else {
