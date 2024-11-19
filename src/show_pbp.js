@@ -186,10 +186,19 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         if (filterType !== null) {
           if (STATUS === filterType) {
             $("#table-body").append(`
-                        <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
+                        <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" class="${
+              NIK_PBP_AWAL !== NIK_PBP_PENERIMA ||
+              NAMA_PBP_AWAL !== NAMA_PENERIMA
+                ? "text-danger"
+                : ""
+            }">
                             <th scope="row">${NO}</th>
                             <td>${NO_KPM}</td>
-                            <td>${NIK_PBP_AWAL}</td>
+                            <td class="${
+                              NIK_PBP_AWAL !== NIK_PBP_PENERIMA
+                                ? "text-danger font-weight-boold"
+                                : ""
+                            }">${NIK_PBP_AWAL}</td>
                             <td>${NIK_PBP_PENERIMA}</td>
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}
@@ -216,13 +225,23 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           }
         } else {
           $("#table-body").append(`
-            <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
+            <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" class="${
+            NIK_PBP_AWAL !== NIK_PBP_PENERIMA || NAMA_PBP_AWAL !== NAMA_PENERIMA
+              ? "text-danger"
+              : ""
+          }">
                 <th scope="row">${NO}</th>
                 <td>${NO_KPM}</td>
                 <td>${NIK_PBP_AWAL}</td>
                 <td>${NIK_PBP_PENERIMA}</td>
                 <td>${NAMA_PBP_AWAL}</td>
-                <td>${NAMA_PENERIMA}
+                <td class="${
+                  NAMA_PBP_AWAL !== NAMA_PENERIMA &&
+                  STATUS !== "PENGGANTI" &&
+                  STATUS !== "PERWAKILAN"
+                    ? "text-danger font-weight-bold"
+                    : ""
+                }">${NAMA_PENERIMA}
                 ${
                   PEKERJAAN === undefined
                     ? ""
