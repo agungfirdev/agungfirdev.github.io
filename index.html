@@ -67,6 +67,7 @@
               <option>Pilih alokasi..</option>
               <option value="AGUSTUS">AGUSTUS - 2024</option>
               <option value="OKTOBER">OKTOBER - 2024</option>
+              <option value="DESEMBER">DESEMBER - 2024</option>
             </select>
           </div>
         </div>
@@ -280,6 +281,10 @@
           $("#select-kecamatan").prop("disabled", false);
         } else if (alokasi === "OKTOBER") {
           alokasiSelected = "OKT";
+          $("#select-desa").prop("disabled", false);
+          $("#select-kecamatan").prop("disabled", false);
+        } else if (alokasi === "DESEMBER") {
+          alokasiSelected = "DES";
           $("#select-desa").prop("disabled", false);
           $("#select-kecamatan").prop("disabled", false);
         }

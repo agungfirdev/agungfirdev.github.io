@@ -6,7 +6,7 @@
 //     (
 //       {
 //         NO,
-//         NO_KPM,
+//         NO_PBP,
 //         NIK_PBP_AWAL,
 //         NIK_PBP_PENERIMA,
 //         NAMA_PBP_AWAL,
@@ -60,7 +60,7 @@
 //       $("#table-body").append(`
 //             <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
 //                 <th scope="row">${NO}</th>
-//                 <td>${NO_KPM}</td>
+//                 <td>${NO_PBP}</td>
 //                 <td>${NIK_PBP_AWAL}</td>
 //                 <td>${NIK_PBP_PENERIMA}</td>
 //                 <td>${NAMA_PBP_AWAL}</td>
@@ -116,7 +116,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
       (
         {
           NO,
-          NO_KPM,
+          NO_PBP,
           NIK_PBP_AWAL,
           NIK_PBP_PENERIMA,
           NAMA_PBP_AWAL,
@@ -187,7 +187,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           TEXT_STATUS = `<span class="dot bg-primary"></span>&nbsp;${
             ALASAN !== undefined ? ALASAN.toUpperCase() : ""
           }`;
-        } else if (STATUS === "") {
+        } else if (STATUS === "-" || STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>&nbsp;${
             ALASAN !== undefined ? ALASAN.toUpperCase() : "BELUM DISERAHKAN"
           }`;
@@ -199,7 +199,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
               NAMA_PBP_AWAL !== NAMA_PENERIMA ? "bg-secondary" : ""
             }">
                             <th scope="row">${NO}</th>
-                            <td>${NO_KPM}</td>
+                            <td>${NO_PBP}</td>
                             <td class="${
                               NIK_PBP_AWAL !== NIK_PBP_PENERIMA
                                 ? "text-danger font-weight-bold"
@@ -235,7 +235,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
             NAMA_PBP_AWAL !== NAMA_PENERIMA ? "bg-secondary" : ""
           }">
                 <th scope="row">${NO}</th>
-                <td>${NO_KPM}</td>
+                <td>${NO_PBP}</td>
                 <td>${NIK_PBP_AWAL}</td>
                 <td>${NIK_PBP_PENERIMA}</td>
                 <td>${NAMA_PBP_AWAL}</td>
