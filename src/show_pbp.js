@@ -159,6 +159,8 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           kodeAlokasi = "47";
         } else if (alokasiSelected === "OKT") {
           kodeAlokasi = "48";
+        } else if (alokasiSelected === "DES") {
+          kodeAlokasi = "49";
         }
 
         const url = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
