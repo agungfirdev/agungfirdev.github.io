@@ -44,16 +44,33 @@
         display: block;
         border-radius: 50%;
       }
+
+      .table-responsive {
+        overflow-x: auto;
+      }
+
+      .table-responsive table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .table-responsive th:first-child,
+      .table-responsive td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: #fff;
+        z-index: 10;
+      }
     </style>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body>
-    <div class="p-4">
+    <div class="p-2">
       <div class="row">
-        <div class="col-9">
+        <div class="col-sm-6 col-12">
           <h1 id="title">Data Penerima Bantuan Pangan</h1>
         </div>
-        <div class="col-3">
+        <div class="col-sm-6 col-12">
           <p class="text-end" id="tanggal-diperbarui">
             Di Perbarui: 18 DES 2024 07:25
           </p>
@@ -100,8 +117,8 @@
           </div>
         </div>
       </div>
-      <div class="mt-2">
-        <div class="d-flex justify-content-between">
+      <div class="mt-2 row">
+        <div class="d-flex justify-content-between col-12">
           <div>
             <span class="badge rounded-pill bg-info" id="jumlah-pbp"
               >JUMLAH</span
@@ -122,38 +139,43 @@
               >SISA</span
             >
           </div>
-          <div>
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="check-open-foto-all"
-            />
-            <label class="form-check-label" for="check-open-foto-all">
-              Buka semua foto
-            </label>
-          </div>
+        </div>
+        <div class="col-12">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="check-open-foto-all"
+          />
+          <label class="form-check-label" for="check-open-foto-all">
+            Buka foto
+          </label>
         </div>
       </div>
-      <table
-        class="table table-hover mt-4 table-responsive d-none"
-        id="table-main"
-      >
-        <thead>
-          <tr>
-            <th scope="col" style="width: 3%">#</th>
-            <th scope="col" style="width: 10%">NO PBP</th>
-            <th scope="col" style="width: 12%">NIK PBP Awal</th>
-            <th scope="col" style="width: 12%">NIK Penerima</th>
-            <th scope="col">Nama PBP Awal</th>
-            <th scope="col">Nama Penerima(Pekerjaan)</th>
-            <th scope="col" id="header-status" style="cursor: pointer">
-              Alasan <i class="bi bi-sort-up"></i>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
+
+      <div class="row overflow-hidden">
+        <div class="col-12 overflow-scroll">
+          <table
+            class="table table-hover mt-4 table-responsive d-none"
+            id="table-main"
+          >
+            <thead>
+              <tr>
+                <th scope="col sticky-left" style="width: 3%">#</th>
+                <th scope="col sticky-left" style="width: 10%">NO PBP</th>
+                <th scope="col sticky-left" style="width: 12%">NIK AWAL</th>
+                <th scope="col" style="width: 12%">NIK PENERIMA</th>
+                <th scope="col">NAMA AWAL</th>
+                <th scope="col">NAMA PENERIMA(Pekerjaan)</th>
+                <th scope="col" id="header-status" style="cursor: pointer">
+                  Alasan <i class="bi bi-sort-up"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
     <style>
       .toast {
@@ -262,14 +284,15 @@
 
       $("#select-alokasi").on("change", function () {
         showPbp([]);
-        $("#select-kecamatan").prop("disabled", true);
-        $("#select-desa").prop("disabled", true);
+        if (alokasi !== this.value) {
+          $("#select-desa").prop("disabled", true);
+          $("#select-kecamatan").val($("#select-kecamatan option:first").val());
+          $("#select-desa").prop("disabled", true);
+          $("#select-desa").val($("#select-desa option:first").val());
+        }
         alokasi = this.value;
-        if (alokasi === null) {
-          $("#select-alokasi").prop("disable", true);
-          $("#select-kecamatan").prop("disabled", true);
-        } else {
-          $("#select-desa").prop("disabled", false);
+
+        if (alokasi !== null) {
           $("#select-kecamatan").prop("disabled", false);
         }
       });
@@ -373,35 +396,6 @@
         isShow = this.checked;
         showPBP();
       });
-
-      // $.ajax({
-      //   type: "POST",
-      //   url: "http://astridjplb.id/w/10/report/lap_pbp_tampil.php",
-      //   data: {
-      //     userid: "A110010001",
-      //     kdkantor: "11001",
-      //     namakantor: "JPLB-CABANG JATENG",
-      //     level: "10",
-      //     tahap: "47 | AGUSTUS",
-      //     propinsi: "JAWA TENGAH",
-      //     kota: "KAB. PEMALANG",
-      //     kecamatan: kecamatanSelected,
-      //     kelurahan: desaSelected,
-      //   },
-      //   crossDomain: true,
-      //   headers: {
-      //     "Access-Control-Allow-Origin": "https://astridjplb.id",
-      //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-      //     "Access-Control-Allow-Headers":
-      //       "Content-Type, Accept, Origin, X-Requested-With, Access-Control-Allow-Methods",
-      //   },
-      //   success: function (data) {
-      //     console.log("Data sent successfully:", data);
-      //   },
-      //   error: function (xhr, status, error) {
-      //     console.log("Error:", error);
-      //   },
-      // });
     </script>
   </body>
 </html>

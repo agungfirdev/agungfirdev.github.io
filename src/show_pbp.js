@@ -1,88 +1,3 @@
-// $.getJSON("data/KAB. PEMALANG_AGU.json", function (data) {
-//   let jumlahPengganti = 0;
-//   let jumlahPerwakilan = 0;
-//   let jumlahAwal = 0;
-//   data.forEach(
-//     (
-//       {
-//         NO,
-//         NO_PBP,
-//         NIK_PBP_AWAL,
-//         NIK_PBP_PENERIMA,
-//         NAMA_PBP_AWAL,
-//         NAMA_PENERIMA,
-//         STATUS,
-//         PENERIMA,
-//         KOTA,
-//         KECAMATAN,
-//         DESA,
-//         FOTO_URL,
-//       },
-//       index
-//     ) => {
-//       if (STATUS === "PENGGANTI") {
-//         jumlahPengganti++;
-//       }
-
-//       if (STATUS === "PERWAKILAN") {
-//         jumlahPerwakilan++;
-//       }
-
-//       if (STATUS === "AWAL") {
-//         jumlahAwal++;
-//       }
-
-//       const url = `https://astridjplb.id/files/img/dokumen/47/JAWATENGAH/${KOTA.replace(
-//         " ",
-//         ""
-//       ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
-//         " ",
-//         ""
-//       )}/${FOTO_URL.split(".")[0]}.jpg`;
-
-//       const urlKtp = `https://astridjplb.id/files/img/dokumen/47/JAWATENGAH/${KOTA.replace(
-//         " ",
-//         ""
-//       ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
-//         " ",
-//         ""
-//       )}/${FOTO_URL.split(".")[0]}_ktp.jpg`;
-
-//       let TEXT_STATUS = "";
-
-//       if (STATUS === "AWAL") {
-//         TEXT_STATUS = `<button class="badge rounded-pill bg-dark">AWAL</span>`;
-//       } else if (STATUS === "PENGGANTI") {
-//         TEXT_STATUS = `<button class="badge rounded-pill bg-success">PENGGANTI</span>`;
-//       } else {
-//         TEXT_STATUS = `<button class="badge rounded-pill bg-primary">PERWAKILAN</span>`;
-//       }
-//       $("#table-body").append(`
-//             <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
-//                 <th scope="row">${NO}</th>
-//                 <td>${NO_PBP}</td>
-//                 <td>${NIK_PBP_AWAL}</td>
-//                 <td>${NIK_PBP_PENERIMA}</td>
-//                 <td>${NAMA_PBP_AWAL}</td>
-//                 <td>${NAMA_PENERIMA}</td>
-//                 <td>${TEXT_STATUS}</td>
-//             </tr>
-//             <tr id="${NIK_PBP_AWAL}" class="collapse">
-//                 <td colspan="3">
-//                     <div class="d-flex">
-//                         <img src="${url}" width="100%"/>
-//                         <img src="${urlKtp}" width="100%"/>
-//                     </div>
-//                 </td>
-//             </tr>
-//         `);
-//       $("#jumlah-awal").html("AWAL |  " + jumlahAwal);
-//       $("#jumlah-pengganti").html("PENGGANTI |  " + jumlahPengganti);
-//       $("#jumlah-perwakilan").html("PERWAKILAN |  " + jumlahPerwakilan);
-//     }
-//   );
-// });
-
 let rotation = 0;
 function rotateImage(id) {
   rotation += 90; // Increase rotation by 90 degrees
@@ -91,18 +6,6 @@ function rotateImage(id) {
     "-moz-transform": "rotate(" + rotation + "deg)",
     transform: "rotate(" + rotation + "deg)",
   });
-  // $("#" + $(id).attr("id")).animate(
-  //   { transform: rotation },
-  //   {
-  //     step: function (rotation, fx) {
-  //       $(this).css({
-  //         "-webkit-transform": "rotate(" + rotation + "deg)",
-  //         "-moz-transform": "rotate(" + rotation + "deg)",
-  //         transform: "rotate(" + rotation + "deg)",
-  //       });
-  //     },
-  //   }
-  // );
 }
 
 function getKodeAlokasi(alokasi) {
@@ -220,9 +123,7 @@ function showPbp(filter, filterType = null, open = false) {
         if (filterType !== null) {
           if (STATUS === filterType) {
             $("#table-body").append(`
-                        <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" class="${
-              NAMA_PBP_AWAL !== NAMA_PENERIMA ? "bg-secondary" : ""
-            }">
+                        <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
                             <th scope="row">${NO}</th>
                             <td>${NO_PBP}</td>
                             <td class="${
@@ -245,7 +146,7 @@ function showPbp(filter, filterType = null, open = false) {
               open ? "show" : ""
             }">
                             <td colspan="4">
-                                <div class="d-flex">
+                                <div class="d-flex overflow-scroll">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
                                     <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
                                 </div>
@@ -256,9 +157,7 @@ function showPbp(filter, filterType = null, open = false) {
           }
         } else {
           $("#table-body").append(`
-            <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" class="${
-            NAMA_PBP_AWAL !== NAMA_PENERIMA ? "bg-secondary" : ""
-          }">
+            <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" >
                 <th scope="row">${NO}</th>
                 <td>${NO_PBP}</td>
                 <td>${NIK_PBP_AWAL}</td>
