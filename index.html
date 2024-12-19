@@ -237,17 +237,11 @@
             type: "PUT",
             url: "https://agungfirdevgithubio-default-rtdb.asia-southeast1.firebasedatabase.app/count.json",
             data: JSON.stringify(count + 1),
-            success: function (data) {
-              console.log("Data saved successfully!");
-            },
-            error: function (xhr, status, error) {
-              console.log("Error saving data:", error);
-            },
+            success: function (data) {},
+            error: function (xhr, status, error) {},
           });
         },
-        error: function (xhr, status, error) {
-          console.log("Error retrieving data:", error);
-        },
+        error: function (xhr, status, error) {},
       });
     </script>
     <script>
@@ -275,7 +269,6 @@
           $("#select-alokasi").prop("disable", true);
           $("#select-kecamatan").prop("disabled", true);
         } else {
-          console.log("ALOKASI TIDAK NULL ", alokasi);
           $("#select-desa").prop("disabled", false);
           $("#select-kecamatan").prop("disabled", false);
         }
