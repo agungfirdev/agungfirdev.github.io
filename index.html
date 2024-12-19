@@ -275,6 +275,7 @@
           $("#select-alokasi").prop("disable", true);
           $("#select-kecamatan").prop("disabled", true);
         } else {
+          console.log("ALOKASI TIDAK NULL ", alokasi);
           $("#select-desa").prop("disabled", false);
           $("#select-kecamatan").prop("disabled", false);
         }
@@ -316,6 +317,7 @@
 
       $("#select-desa").on("change", function () {
         showPbp([]);
+        console.log(alokasi);
         desaSelected = this.value;
         statusSelected = 1;
 
@@ -333,7 +335,7 @@
               );
               $("#select-filter-status").attr("disabled", false);
               showPbp([]);
-              showPbp(filterPbp);
+              showPbp(filterPbp, null, false);
               hideloading();
             }
           );

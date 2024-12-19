@@ -125,7 +125,7 @@ function getKodeAlokasi(alokasi) {
   }
 }
 
-function showPbp(filter, filterType = null, open = false, alokasi = null) {
+function showPbp(filter, filterType = null, open = false) {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
     let jumlahPerwakilan = 0;
@@ -175,11 +175,12 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           jumlahSisa++;
         }
         let kodeAlokasi = null;
-        if (alokasiSelected === "AGU") {
+        console.log(alokasi);
+        if (alokasi === "AGUSTUS_2024") {
           kodeAlokasi = "47";
-        } else if (alokasiSelected === "OKT") {
+        } else if (alokasi === "OKTOBER_2024") {
           kodeAlokasi = "48";
-        } else if (alokasiSelected === "DES") {
+        } else if (alokasi === "DESEMBER_2024") {
           kodeAlokasi = "49";
         }
 
@@ -190,7 +191,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           " ",
           ""
         )}/2PBP_${FOTO_URL.split(".")[0]}.jpg`;
-
+        console.log(url);
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
           ""
