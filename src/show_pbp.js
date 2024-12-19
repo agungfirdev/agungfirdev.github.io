@@ -105,6 +105,26 @@ function rotateImage(id) {
   // );
 }
 
+function getKodeAlokasi(alokasi) {
+  if (alokasi === "SEP-23") {
+    return "21 | SEPTEMBER";
+  } else if (alokasi === "OKT-23") {
+    return "22 | OKTOBER";
+  } else if (alokasi === "NOV-23") {
+    return "23 | NOVEMBER";
+  } else if (alokasi === "DES-23") {
+    return "31 | DESEMBER";
+  } else if (alokasi === "AGU-24") {
+    return "47 | AGUSTUS";
+  } else if (alokasi === "OKT-24") {
+    return "48 | OKTOBER";
+  } else if (alokasi === "DES-24") {
+    return "49 | DESEMBER";
+  } else {
+    throw new Error("Alokasi salah!");
+  }
+}
+
 function showPbp(filter, filterType = null, open = false, alokasi = null) {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
@@ -151,7 +171,7 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
           jumlahAwal++;
         }
 
-        if (STATUS === "") {
+        if (STATUS === "" || STATUS === "-") {
           jumlahSisa++;
         }
         let kodeAlokasi = null;
@@ -273,7 +293,6 @@ function showPbp(filter, filterType = null, open = false, alokasi = null) {
         $("#jumlah-perwakilan").html("PERWAKILAN |  " + jumlahPerwakilan);
         $("#jumlah-1kk").html("1KK |  " + jumlah1KK);
         $("#jumlah-sisa").html("SISA |  " + jumlahSisa);
-        console.log(jumlah1KK);
       }
     );
   } else {

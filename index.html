@@ -65,9 +65,9 @@
             <label for="select-alokasi">Alokasi</label>
             <select class="form-control" id="select-alokasi">
               <option>Pilih alokasi..</option>
-              <option value="AGUSTUS">AGUSTUS - 2024</option>
-              <option value="OKTOBER">OKTOBER - 2024</option>
-              <option value="DESEMBER">DESEMBER - 2024</option>
+              <option value="AGUSTUS_2024">AGUSTUS - 2024</option>
+              <option value="OKTOBER_2024">OKTOBER - 2024</option>
+              <option value="DESEMBER_2024">DESEMBER - 2024</option>
             </select>
           </div>
         </div>
@@ -273,18 +273,8 @@
         alokasi = this.value;
         if (alokasi === null) {
           $("#select-alokasi").prop("disable", true);
-          alokasiSelected = null;
           $("#select-kecamatan").prop("disabled", true);
-        } else if (alokasi === "AGUSTUS") {
-          alokasiSelected = "AGU";
-          $("#select-desa").prop("disabled", false);
-          $("#select-kecamatan").prop("disabled", false);
-        } else if (alokasi === "OKTOBER") {
-          alokasiSelected = "OKT";
-          $("#select-desa").prop("disabled", false);
-          $("#select-kecamatan").prop("disabled", false);
-        } else if (alokasi === "DESEMBER") {
-          alokasiSelected = "DES";
+        } else {
           $("#select-desa").prop("disabled", false);
           $("#select-kecamatan").prop("disabled", false);
         }
@@ -332,7 +322,7 @@
         if (desaSelected !== "Pilih desa..") {
           showloading();
           $.getJSON(
-            `data/DATA_PENERIMA/KAB. PEMALANG_${kecamatanSelected}_${desaSelected}_${alokasiSelected}.json`,
+            `data/${alokasi}/KAB. PEMALANG_${kecamatanSelected}_${desaSelected}_${alokasi}.json`,
             function (data) {
               PBP = [...data];
 
