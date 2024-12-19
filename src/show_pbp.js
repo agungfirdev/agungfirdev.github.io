@@ -175,7 +175,6 @@ function showPbp(filter, filterType = null, open = false) {
           jumlahSisa++;
         }
         let kodeAlokasi = null;
-        console.log(alokasi);
         if (alokasi === "AGUSTUS_2024") {
           kodeAlokasi = "47";
         } else if (alokasi === "OKTOBER_2024") {
@@ -191,7 +190,6 @@ function showPbp(filter, filterType = null, open = false) {
           " ",
           ""
         )}/2PBP_${FOTO_URL.split(".")[0]}.jpg`;
-        console.log(url);
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
           ""
@@ -213,6 +211,10 @@ function showPbp(filter, filterType = null, open = false) {
         } else if (STATUS === "-" || STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>&nbsp;${
             ALASAN !== undefined ? ALASAN.toUpperCase() : "BELUM DISERAHKAN"
+          }`;
+        } else if (NIK_PBP_AWAL !== NIK_PBP_PENERIMA) {
+          TEXT_STATUS = `<span class="dot bg-secondary"></span>&nbsp;${
+            ALASAN !== undefined ? ALASAN.toUpperCase() : "1KK"
           }`;
         }
         if (filterType !== null) {
