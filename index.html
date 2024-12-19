@@ -201,7 +201,8 @@
       }
 
       .toast-image {
-        max-width: 80%; /* Adjust image size */
+        width: 180px;
+        max-width: 20%; /* Adjust image size */
         border-radius: 10px; /* Rounded corners */
         margin-bottom: 20px; /* Space between image and text */
       }
@@ -214,12 +215,12 @@
       />
     </div>
 
-    <div id="toast-loading" class="toast">
+    <div id="toast-loading" class="toast row">
       <lottie-player
         src="./lottie/loading.json"
         background="transparent"
         speed="1"
-        style="width: 200px; height: 200px"
+        style="width: 10px; height: 10px"
         loop
         autoplay
       ></lottie-player>
@@ -373,22 +374,22 @@
       function showPBP() {
         showPbp([]);
         if (statusSelected === 1) {
-          showPbp(filterPbp, null, isShow);
+          showPbp(filterPbp, null);
         }
         if (statusSelected === 2) {
-          showPbp(filterPbp, "AWAL", isShow);
+          showPbp(filterPbp, "AWAL");
         }
 
         if (statusSelected === 3) {
-          showPbp(filterPbp, "PENGGANTI", isShow);
+          showPbp(filterPbp, "PENGGANTI");
         }
 
         if (statusSelected === 4) {
-          showPbp(filterPbp, "PERWAKILAN", isShow);
+          showPbp(filterPbp, "PERWAKILAN");
         }
 
         if (statusSelected === 5) {
-          showPbp(filterPbp, "", isShow);
+          showPbp(filterPbp, "");
         }
       }
 

@@ -28,7 +28,7 @@ function getKodeAlokasi(alokasi) {
   }
 }
 
-function showPbp(filter, filterType = null, open = false) {
+function showPbp(filter, filterType = null) {
   if (filter.length !== 0) {
     let jumlahPengganti = 0;
     let jumlahPerwakilan = 0;
@@ -143,8 +143,9 @@ function showPbp(filter, filterType = null, open = false) {
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
                         <tr id="${NIK_PBP_AWAL}" class="collapse ${
-              open ? "show" : ""
+              isShow ? "show" : ""
             }">
+                            <td class="bg-transparent"></td>
                             <td colspan="4">
                                 <div class="d-flex overflow-scroll">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
@@ -178,7 +179,8 @@ function showPbp(filter, filterType = null, open = false) {
                 </td>
                 <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
             </tr>
-            <tr id="${NIK_PBP_AWAL}" class="collapse ${open ? "show" : ""}">
+            <tr id="${NIK_PBP_AWAL}" class="collapse ${isShow ? "show" : ""}">
+                <td class="bg-transparent"></td>
                 <td colspan="4">
                     <div class="d-flex">
                         <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
