@@ -142,18 +142,23 @@ function showPbp(filter, filterType = null) {
                             </td>
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
-                        <tr id="${NIK_PBP_AWAL}" class="collapse ${
-              isShow ? "show" : ""
-            }">
+                        ${
+                          STATUS === "-"
+                            ? `<tr id="${NIK_PBP_AWAL}" class="collapse ${
+                                isShow ? "show" : ""
+                              }">
                             <td class="bg-transparent"></td>
-                            <td colspan="4">
+                            <td colspan="3">
                                 <div class="d-flex overflow-scroll">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
                                     <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
                                 </div>
                             </td>
                        
-                        </tr>
+                        </tr>`
+                            : ""
+                        }
+
                     `);
           }
         } else {
@@ -179,16 +184,21 @@ function showPbp(filter, filterType = null) {
                 </td>
                 <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
             </tr>
-            <tr id="${NIK_PBP_AWAL}" class="collapse ${isShow ? "show" : ""}">
+            ${
+              STATUS !== "-"
+                ? `<tr id="${NIK_PBP_AWAL}" class="collapse ${
+                    isShow ? "show" : ""
+                  }">
                 <td class="bg-transparent"></td>
-                <td colspan="4">
+                <td colspan="3">
                     <div class="d-flex">
                         <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
                         <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain" onclick="rotateImage(K${NIK_PBP_AWAL})"/>
                     </div>
                 </td>
-           
-            </tr>
+            </tr>`
+                : ""
+            }
         `);
         }
         $("#jumlah-pbp").html("JUMLAH |  " + filter.length);
