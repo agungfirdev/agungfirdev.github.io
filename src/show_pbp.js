@@ -131,11 +131,7 @@ function showPbp(PBPS) {
                         <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
                             <th scope="row">${NO}</th>
                             <td>${NO_PBP}</td>
-                            <td class="${
-                              NIK_PBP_AWAL !== NIK_PBP_PENERIMA
-                                ? "text-danger font-weight-bold"
-                                : ""
-                            }">${NIK_PBP_AWAL}</td>
+                            <td>${NIK_PBP_AWAL}</td>
                             <td>${NIK_PBP_PENERIMA}</td>
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}
