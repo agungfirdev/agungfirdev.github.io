@@ -153,7 +153,7 @@ function showPbp(PBPS) {
                             <td colspan="6">
                                 <div class="d-flex">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="object-fit-contain"/>
-                                    <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="object-fit-contain" onclick="rotateImage('K${NIK_PBP_AWAL}')"/>
+                                    <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="zoom-move object-fit-contain" onclick="rotateImage('#K${NIK_PBP_AWAL}')"/>
                                 </div>
                             </td>
                        
@@ -174,3 +174,12 @@ function showPbp(PBPS) {
     $("#table-body").html("");
   }
 }
+
+$(".zoom-move").hover(
+  function () {
+    $(this).css("transform", "scale(1.2) translate(10px, 10px)");
+  },
+  function () {
+    $(this).css("transform", "");
+  }
+);
