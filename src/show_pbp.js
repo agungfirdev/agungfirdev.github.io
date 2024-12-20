@@ -176,11 +176,7 @@ function showPbp(filter, filterType = null) {
                     ? "text-danger font-weight-bold"
                     : ""
                 }">${NAMA_PENERIMA}
-                ${
-                  PEKERJAAN === undefined
-                    ? ""
-                    : " (" + PEKERJAAN.toUpperCase() + ")"
-                }
+                ${PEKERJAAN === "" ? "" : " (" + PEKERJAAN.toUpperCase() + ")"}
                 </td>
                 <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
             </tr>
