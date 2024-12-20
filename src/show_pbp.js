@@ -1,6 +1,7 @@
 let rotation = 0;
 function rotateImage(id) {
   rotation += 90; // Increase rotation by 90 degrees
+  console.log(rotation);
   $("#" + $(id).attr("id")).css({
     "-webkit-transform": "rotate(" + rotation + "deg)",
     "-moz-transform": "rotate(" + rotation + "deg)",
@@ -150,9 +151,9 @@ function showPbp(PBPS) {
                               }">
                             <td class="bg-transparent"></td>
                             <td colspan="6">
-                                <div class="d-flex overflow-scroll">
-                                    <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
-                                    <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
+                                <div class="d-flex">
+                                    <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="object-fit-contain"/>
+                                    <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="object-fit-contain" onclick="rotateImage('K${NIK_PBP_AWAL}')"/>
                                 </div>
                             </td>
                        
