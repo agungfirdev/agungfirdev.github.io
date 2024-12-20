@@ -153,7 +153,7 @@ function showPbp(PBPS) {
                                 isShow ? "show" : ""
                               }">
                             <td class="bg-transparent"></td>
-                            <td colspan="3">
+                            <td colspan="6">
                                 <div class="d-flex overflow-scroll">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
                                     <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain"/>
