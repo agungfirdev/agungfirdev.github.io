@@ -135,7 +135,7 @@ function showPbp(filter, filterType = null) {
                             <td>${NAMA_PBP_AWAL}</td>
                             <td>${NAMA_PENERIMA}
                             ${
-                              PEKERJAAN === undefined
+                              PEKERJAAN === ""
                                 ? ""
                                 : " (" + PEKERJAAN.toUpperCase() + ")"
                             }
