@@ -284,6 +284,7 @@
       let statusSelected = 1;
       let filterPbp = [];
       let alokasi = null;
+      let filterType = null;
       let alokasiSelected = null;
       let isShow = false;
       $.getJSON("data/DESA.json", function (data) {
@@ -344,7 +345,6 @@
       $("#select-desa").on("change", function () {
         showPbp([]);
         showHeader();
-        console.log(alokasi);
         desaSelected = this.value;
         statusSelected = 1;
 
@@ -355,14 +355,9 @@
             function (data) {
               PBP = [...data];
 
-              filterPbp = PBP.filter(
-                (pbp) =>
-                  pbp.KECAMATAN === kecamatanSelected &&
-                  pbp.DESA === desaSelected
-              );
               $("#select-filter-status").attr("disabled", false);
               showPbp([]);
-              showPbp(filterPbp, null, false);
+              showPbp(PBP);
               hideloading();
             }
           );
@@ -373,34 +368,27 @@
       });
 
       $("#header-status").on("click", function () {
-        if (statusSelected >= 5) {
+        if (statusSelected >= 4) {
           statusSelected = 1;
         } else {
           statusSelected++;
+        }
+        console.log("STATUS SELECTED", statusSelected);
+        if (statusSelected === 1) {
+          filterType = null;
+        } else if (statusSelected === 2) {
+          filterType = "AWAL";
+        } else if (statusSelected === 3) {
+          filterType = "PENGGANTI";
+        } else if (statusSelected === 4) {
+          filterType = "PERWAKILAN";
         }
         showPBP();
       });
 
       function showPBP() {
         showPbp([]);
-        if (statusSelected === 1) {
-          showPbp(filterPbp, null);
-        }
-        if (statusSelected === 2) {
-          showPbp(filterPbp, "AWAL");
-        }
-
-        if (statusSelected === 3) {
-          showPbp(filterPbp, "PENGGANTI");
-        }
-
-        if (statusSelected === 4) {
-          showPbp(filterPbp, "PERWAKILAN");
-        }
-
-        if (statusSelected === 5) {
-          showPbp(filterPbp, "");
-        }
+        showPbp(PBP);
       }
 
       $("#check-open-foto-all").change(function () {

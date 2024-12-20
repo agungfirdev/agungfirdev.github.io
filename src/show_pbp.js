@@ -28,14 +28,21 @@ function getKodeAlokasi(alokasi) {
   }
 }
 
-function showPbp(filter, filterType = null) {
-  if (filter.length !== 0) {
+function showPbp(PBPS) {
+  let filterPbps = null;
+  if (filterType !== null) {
+    filterPbps = PBPS.filter((pbp) => pbp.STATUS === filterType);
+  } else {
+    filterPbps = PBPS;
+  }
+
+  if (filterPbps.length !== 0) {
     let jumlahPengganti = 0;
     let jumlahPerwakilan = 0;
     let jumlahSisa = 0;
     let jumlahAwal = 0;
     let jumlah1KK = 0;
-    filter.forEach(
+    filterPbps.forEach(
       (
         {
           NO,
@@ -120,9 +127,7 @@ function showPbp(filter, filterType = null) {
             ALASAN !== undefined ? ALASAN.toUpperCase() : "1KK"
           }`;
         }
-        if (filterType !== null) {
-          if (STATUS === filterType) {
-            $("#table-body").append(`
+        $("#table-body").append(`
                         <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}">
                             <th scope="row">${NO}</th>
                             <td>${NO_PBP}</td>
@@ -143,7 +148,7 @@ function showPbp(filter, filterType = null) {
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
                         ${
-                          STATUS === "-"
+                          STATUS !== "-"
                             ? `<tr id="${NIK_PBP_AWAL}" class="collapse ${
                                 isShow ? "show" : ""
                               }">
@@ -160,44 +165,7 @@ function showPbp(filter, filterType = null) {
                         }
 
                     `);
-          }
-        } else {
-          $("#table-body").append(`
-            <tr role="button" data-bs-toggle="collapse" data-bs-target="#${NIK_PBP_AWAL}" aria-expanded="false" aria-controls="${NIK_PBP_AWAL}" >
-                <th scope="row">${NO}</th>
-                <td>${NO_PBP}</td>
-                <td>${NIK_PBP_AWAL}</td>
-                <td>${NIK_PBP_PENERIMA}</td>
-                <td>${NAMA_PBP_AWAL}</td>
-                <td class="${
-                  NAMA_PBP_AWAL !== NAMA_PENERIMA &&
-                  STATUS !== "PENGGANTI" &&
-                  STATUS !== "PERWAKILAN"
-                    ? "text-danger font-weight-bold"
-                    : ""
-                }">${NAMA_PENERIMA}
-                ${PEKERJAAN === "" ? "" : " (" + PEKERJAAN.toUpperCase() + ")"}
-                </td>
-                <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
-            </tr>
-            ${
-              STATUS !== "-"
-                ? `<tr id="${NIK_PBP_AWAL}" class="collapse ${
-                    isShow ? "show" : ""
-                  }">
-                <td class="bg-transparent"></td>
-                <td colspan="3">
-                    <div class="d-flex">
-                        <img loading="lazy" src="${url}" width="100%" id="I${NIK_PBP_AWAL}" class="img-zoom-pbp object-fit-contain"/>
-                        <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK_PBP_AWAL}" class="img-zoom-ktp object-fit-contain" onclick="rotateImage(K${NIK_PBP_AWAL})"/>
-                    </div>
-                </td>
-            </tr>`
-                : ""
-            }
-        `);
-        }
-        $("#jumlah-pbp").html("JUMLAH |  " + filter.length);
+        $("#jumlah-pbp").html("JUMLAH |  " + PBPS.length);
         $("#jumlah-awal").html("AWAL |  " + jumlahAwal);
         $("#jumlah-pengganti").html("PENGGANTI |  " + jumlahPengganti);
         $("#jumlah-perwakilan").html("PERWAKILAN |  " + jumlahPerwakilan);
