@@ -53,11 +53,13 @@ function showPbp(PBPS) {
           NO_PBP,
           NAMA,
           NIK,
-          FOTO_URL,
+          RT,
+          RW,
           NIK_PENERIMA,
           NAMA_PENERIMA,
           RT_PENERIMA,
           RW_PENERIMA,
+          FOTO_URL,
           PEKERJAAN,
           STATUS,
           ALASAN,
@@ -138,8 +140,13 @@ function showPbp(PBPS) {
                             <td>${NIK}&nbsp;</td>
                             <td class="non-click" contenteditable>${NAMA_PENERIMA}</td>
                             <td class="non-click" contenteditable>${NIK_PENERIMA}&nbsp;</td>
-                            <td>${RT_PENERIMA}</td>
-                            <td>${RW_PENERIMA}</td>
+                            <td class="non-click" contenteditable>${
+                              RT_PENERIMA === undefined ? RT : RT_PENERIMA
+                            }</td>
+                            <td class="non-click" contenteditable>${
+                              RW_PENERIMA === undefined ? RW : RW_PENERIMA
+                            }</td>
+                            <td class="non-click" contenteditable></td>
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
                         ${
@@ -149,7 +156,7 @@ function showPbp(PBPS) {
                               }">
                             <!--- <td class="bg-transparent"></td> --->
                             <td colspan="7">
-                                <div class="d-flex">
+                                <div class="d-flex" width="100%">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK}" class="object-fit-contain"/>
                                     <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK}" class="zoom-move object-fit-contain" onclick="rotateImage('#K${NIK}')"/>
                                 </div>

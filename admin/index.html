@@ -86,6 +86,10 @@
       .non-click {
         pointer-events: none;
       }
+
+      *[contenteditable] {
+        text-transform: uppercase;
+      }
     </style>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
@@ -214,6 +218,7 @@
               <th scope="col" style="width: 12%">NIK PENERIMA</th>
               <th scope="col" style="width: 3%">RT</th>
               <th scope="col" style="width: 3%">RW</th>
+              <th scope="col" style="width: 3%">TL</th>
               <th scope="col" id="header-status" style="cursor: pointer">
                 Alasan <i class="bi bi-sort-up"></i>
               </th>
