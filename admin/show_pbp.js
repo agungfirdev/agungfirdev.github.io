@@ -138,8 +138,8 @@ function showPbp(PBPS) {
                             <td>${NO_PBP}</td>
                             <td>${NAMA}</td>
                             <td>${NIK}&nbsp;</td>
-                            <td class="non-click" contenteditable>${NAMA_PENERIMA}</td>
-                            <td class="non-click" contenteditable>${NIK_PENERIMA}&nbsp;</td>
+                            <td class="non-click" contenteditable>${NAMA_PENERIMA}</span></td>
+                            <td class="non-click"><span contenteditable>${NIK_PENERIMA}</span>&nbsp;</td>
                             <td class="non-click" contenteditable>${
                               RT_PENERIMA === undefined ? RT : RT_PENERIMA
                             }</td>
