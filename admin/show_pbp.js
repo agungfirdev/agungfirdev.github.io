@@ -155,15 +155,12 @@ function showPbp(PBPS) {
                                 isShow ? "show" : ""
                               }">
                             <!--- <td class="bg-transparent"></td> --->
-                            <td colspan="4">
-                                <div class="d-flex" width="100%">
+                            <td colspan="10">
+                                <div class="d-flex align-items-stretch">
                                     <img loading="lazy" src="${url}" width="100%" id="I${NIK}" class="object-fit-contain"/>
                                     <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK}" class="zoom-move object-fit-contain" onclick="rotateImage('#K${NIK}')"/>
                                 </div>
                             </td>
-                            <td>
-                            </td>
-                       
                         </tr>`
                             : ""
                         }
