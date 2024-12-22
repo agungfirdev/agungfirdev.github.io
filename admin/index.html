@@ -98,6 +98,13 @@
         </div>
       </div>
       <div class="row">
+        <div class="col">
+          <button class="my-2 btn btn-sm btn-primary" id="export-table">
+            Export
+          </button>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="form-group">
             <label for="select-alokasi">Alokasi</label>
@@ -189,10 +196,10 @@
             <tr>
               <th scope="col sticky-left" style="width: 3%">#</th>
               <th scope="col sticky-left" style="width: 10%">NO PBP</th>
-              <th scope="col sticky-left" style="width: 12%">NIK AWAL</th>
-              <th scope="col" style="width: 12%">NIK PENERIMA</th>
               <th scope="col">NAMA AWAL</th>
-              <th scope="col">NAMA PENERIMA(Pekerjaan)</th>
+              <th scope="col sticky-left" style="width: 12%">NIK AWAL</th>
+              <th scope="col">NAMA PENERIMA</th>
+              <th scope="col" style="width: 12%">NIK PENERIMA</th>
               <th scope="col" id="header-status" style="cursor: pointer">
                 Alasan <i class="bi bi-sort-up"></i>
               </th>
@@ -212,7 +219,7 @@
 
     <div id="toast-loading" class="toast row">
       <lottie-player
-        src="./lottie/loading.json"
+        src="../lottie/loading.json"
         background="transparent"
         speed="1"
         style="width: 10px; height: 10px"
@@ -225,8 +232,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
-    <script src="src/show_pbp.js"></script>
-    <script src="src/zoom_image.js"></script>
-    <script src="src/index.js"></script>
+    <script src="../src/show_pbp.js"></script>
+    <script src="../src/zoom_image.js"></script>
+    <script src="./index.js"></script>
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <script>
+      $("#export-table").click(() => {
+        console.log("onclick");
+        $("#table-main").table2excel({
+          exclude: ".exclude",
+          filename: "data-penerima.xls",
+          name: "PENERIMA",
+          preserveColors: false,
+        });
+      });
+    </script>
   </body>
 </html>
