@@ -47,19 +47,19 @@ function showPbp(PBPS) {
       (
         {
           NO,
-          NO_PBP,
-          NIK,
-          NIK_PENERIMA,
-          NAMA,
-          NAMA_PENERIMA,
-          RT,
-          RW,
-          STATUS,
-          PEKERJAAN,
           KOTA,
           KECAMATAN,
           DESA,
+          NO_PBP,
+          NAMA,
+          NIK,
           FOTO_URL,
+          NIK_PENERIMA,
+          NAMA_PENERIMA,
+          RT_PENERIMA,
+          RW_PENERIMA,
+          PEKERJAAN,
+          STATUS,
           ALASAN,
         },
         index
@@ -136,15 +136,10 @@ function showPbp(PBPS) {
                             <td>${NO_PBP}</td>
                             <td>${NAMA}</td>
                             <td>${NIK}&nbsp;</td>
-                            <td>${RT}  /  ${RW}</td>
-                            <td>${NAMA_PENERIMA}
-                            <td>${NIK_PENERIMA}&nbsp;</td>
-                            ${
-                              PEKERJAAN === ""
-                                ? ""
-                                : " (" + PEKERJAAN.toUpperCase() + ")"
-                            }
-                            </td>
+                            <td class="non-click" contenteditable>${NAMA_PENERIMA}</td>
+                            <td class="non-click" contenteditable>${NIK_PENERIMA}&nbsp;</td>
+                            <td>${RT_PENERIMA}</td>
+                            <td>${RW_PENERIMA}</td>
                             <td class="align-middle"><div class="d-flex align-items-center">${TEXT_STATUS}</div></td>
                         </tr>
                         ${

@@ -82,6 +82,10 @@
         border-radius: 10px; /* Rounded corners */
         margin-bottom: 20px; /* Space between image and text */
       }
+
+      .non-click {
+        pointer-events: none;
+      }
     </style>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
@@ -99,9 +103,17 @@
       </div>
       <div class="row">
         <div class="col">
-          <button class="my-2 btn btn-sm btn-primary" id="export-table">
-            Export
-          </button>
+          <p>
+            Data yang di inputkan bersifat sementara sampai di export,<br />
+            jika di refresh maka akan menarik data ke server!
+          </p>
+        </div>
+        <div class="col">
+          <div class="d-flex justify-content-end">
+            <button class="my-2 btn btn-sm btn-primary" id="export-table">
+              Export
+            </button>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -200,6 +212,8 @@
               <th scope="col sticky-left" style="width: 12%">NIK AWAL</th>
               <th scope="col">NAMA PENERIMA</th>
               <th scope="col" style="width: 12%">NIK PENERIMA</th>
+              <th scope="col" style="width: 3%">RT</th>
+              <th scope="col" style="width: 3%">RW</th>
               <th scope="col" id="header-status" style="cursor: pointer">
                 Alasan <i class="bi bi-sort-up"></i>
               </th>
@@ -232,7 +246,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
-    <script src="../src/show_pbp.js"></script>
+    <script src="./show_pbp.js"></script>
     <script src="../src/zoom_image.js"></script>
     <script src="./index.js"></script>
     <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
