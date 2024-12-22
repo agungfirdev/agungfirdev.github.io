@@ -125,7 +125,7 @@ function showPbp(PBPS) {
           }`;
         } else if (STATUS === "-" || STATUS === "") {
           TEXT_STATUS = `<span class="dot bg-danger"></span>&nbsp;${
-            ALASAN !== undefined ? ALASAN.toUpperCase() : "BELUM DISERAHKAN"
+            ALASAN !== undefined ? ALASAN.toUpperCase() : "BELUM"
           }`;
         } else if (NIK !== NIK_PENERIMA) {
           TEXT_STATUS = `<span class="dot bg-secondary"></span>&nbsp;${
