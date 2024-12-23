@@ -135,10 +135,10 @@ function showPbp(PBPS) {
                             <th scope="row">${NO}</th>
                             <td>${NO_PBP}</td>
                             <td>${NAMA}</td>
-                            <td>${NIK}&nbsp;</td>
-                            <td>${RT}  /  ${RW}</td>
+                            <td>${NIK}</td>
+                            <td>${RT}/${RW}</td>
                             <td>${NAMA_PENERIMA}
-                            <td>${NIK_PENERIMA}&nbsp;</td>
+                            <td>${NIK_PENERIMA}</td>
                             ${
                               PEKERJAAN === ""
                                 ? ""
