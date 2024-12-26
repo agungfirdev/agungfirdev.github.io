@@ -31,18 +31,45 @@ function getKodeAlokasi(alokasi) {
 
 function showPbp(PBPS) {
   let filterPbps = null;
-  if (filterType !== null) {
-    filterPbps = PBPS.filter((pbp) => pbp.STATUS === filterType);
-  } else {
+  if (filterType === null) {
     filterPbps = PBPS;
+  } else if (filterType === "BELUM DISERAHKAN") {
+    filterPbps = PBPS.filter((pbp) => pbp.STATUS === "-");
+  } else {
+    filterPbps = PBPS.filter((pbp) => pbp.STATUS === filterType);
   }
+  let jumlahPengganti = 0;
+  let jumlahPerwakilan = 0;
+  let jumlahSisa = 0;
+  let jumlahAwal = 0;
+  let jumlah1KK = 0;
+  PBPS.forEach(({ NAMA, NAMA_PENERIMA, STATUS }, index) => {
+    if (
+      NAMA !== NAMA_PENERIMA &&
+      STATUS !== "PERWAKILAN" &&
+      STATUS !== "PENGGANTI"
+    ) {
+      jumlah1KK++;
+    }
+
+    if (STATUS === "PENGGANTI") {
+      jumlahPengganti++;
+    }
+
+    if (STATUS === "PERWAKILAN") {
+      jumlahPerwakilan++;
+    }
+
+    if (STATUS === "AWAL") {
+      jumlahAwal++;
+    }
+
+    if (STATUS === "" || STATUS === "-") {
+      jumlahSisa++;
+    }
+  });
 
   if (filterPbps.length !== 0) {
-    let jumlahPengganti = 0;
-    let jumlahPerwakilan = 0;
-    let jumlahSisa = 0;
-    let jumlahAwal = 0;
-    let jumlah1KK = 0;
     filterPbps.forEach(
       (
         {
@@ -64,29 +91,6 @@ function showPbp(PBPS) {
         },
         index
       ) => {
-        if (
-          NAMA !== NAMA_PENERIMA &&
-          STATUS !== "PERWAKILAN" &&
-          STATUS !== "PENGGANTI"
-        ) {
-          jumlah1KK++;
-        }
-
-        if (STATUS === "PENGGANTI") {
-          jumlahPengganti++;
-        }
-
-        if (STATUS === "PERWAKILAN") {
-          jumlahPerwakilan++;
-        }
-
-        if (STATUS === "AWAL") {
-          jumlahAwal++;
-        }
-
-        if (STATUS === "" || STATUS === "-") {
-          jumlahSisa++;
-        }
         let kodeAlokasi = null;
         if (alokasi === "AGUSTUS_2024") {
           kodeAlokasi = "47";

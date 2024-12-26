@@ -126,7 +126,7 @@ $("#select-desa").on("change", function () {
 });
 
 $("#header-status").on("click", function () {
-  if (statusSelected >= 4) {
+  if (statusSelected >= 5) {
     statusSelected = 1;
   } else {
     statusSelected++;
@@ -140,6 +140,8 @@ $("#header-status").on("click", function () {
     filterType = "PENGGANTI";
   } else if (statusSelected === 4) {
     filterType = "PERWAKILAN";
+  } else if (statusSelected === 5) {
+    filterType = "BELUM DISERAHKAN";
   }
   showPBP();
 });
