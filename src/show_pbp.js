@@ -64,7 +64,7 @@ function showPbp(PBPS) {
       jumlahAwal++;
     }
 
-    if (STATUS === "" || STATUS === "-") {
+    if (STATUS === "-") {
       jumlahSisa++;
     }
   });
