@@ -114,7 +114,7 @@ function showPbp(PBPS) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/2PBP_${FOTO_URL.split(".")[0]}.jpeg`;
+        )}/1PBP_${FOTO_URL.split(".")[0]}.jpeg`;
 
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
@@ -130,7 +130,7 @@ function showPbp(PBPS) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/2PBP_${FOTO_URL.split(".")[0]}_ktp.jpeg`;
+        )}/1PBP_${FOTO_URL.split(".")[0]}_ktp.jpeg`;
 
         let TEXT_STATUS = "";
 
