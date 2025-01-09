@@ -116,6 +116,14 @@ function showPbp(PBPS) {
           ""
         )}/1PBP_${FOTO_URL.split(".")[0]}.jpeg`;
 
+        const urlError2 = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
+          " ",
+          ""
+        ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
+          " ",
+          ""
+        )}/1PBP_${FOTO_URL.split(".")[0]}.jpg`;
+
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
           ""
@@ -131,6 +139,14 @@ function showPbp(PBPS) {
           " ",
           ""
         )}/1PBP_${FOTO_URL.split(".")[0]}_ktp.jpeg`;
+
+        const urlKtpError2 = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
+          " ",
+          ""
+        ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
+          " ",
+          ""
+        )}/1PBP_${FOTO_URL.split(".")[0]}_ktp.jpg`;
 
         let TEXT_STATUS = "";
 
