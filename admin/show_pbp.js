@@ -60,6 +60,7 @@ function showPbp(PBPS) {
           RT_PENERIMA,
           RW_PENERIMA,
           FOTO_URL,
+          KTP_URL,
           PEKERJAAN,
           STATUS,
           ALASAN,
@@ -104,14 +105,15 @@ function showPbp(PBPS) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/2PBP_${FOTO_URL.split(".")[0]}.jpg`;
+        )}/${FOTO_URL}`;
+
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
           ""
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/2PBP_${FOTO_URL.split(".")[0]}_ktp.jpg`;
+        )}/${KTP_URL}`;
 
         let TEXT_STATUS = "";
 
