@@ -87,6 +87,7 @@ function showPbp(PBPS) {
           KECAMATAN,
           DESA,
           FOTO_URL,
+          KTP_URL,
           ALASAN,
         },
         index
@@ -106,23 +107,7 @@ function showPbp(PBPS) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/2PBP_${FOTO_URL.split(".")[0]}.jpg`;
-
-        const urlError = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
-          " ",
-          ""
-        ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
-          " ",
-          ""
-        )}/1PBP_${FOTO_URL.split(".")[0]}.jpeg`;
-
-        const urlError2 = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
-          " ",
-          ""
-        ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
-          " ",
-          ""
-        )}/1PBP_${FOTO_URL.split(".")[0]}.jpg`;
+        )}/${FOTO_URL}`;
 
         const urlKtp = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
           " ",
@@ -130,23 +115,7 @@ function showPbp(PBPS) {
         ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
           " ",
           ""
-        )}/2PBP_${FOTO_URL.split(".")[0]}_ktp.jpg`;
-
-        const urlKtpError = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
-          " ",
-          ""
-        ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
-          " ",
-          ""
-        )}/1PBP_${FOTO_URL.split(".")[0]}_ktp.jpeg`;
-
-        const urlKtpError2 = `https://astridjplb.id/files/img/dokumen/${kodeAlokasi}/JAWATENGAH/${KOTA.replace(
-          " ",
-          ""
-        ).replace(".", "")}/${KECAMATAN.replace(" ", "")}/${DESA.replace(
-          " ",
-          ""
-        )}/1PBP_${FOTO_URL.split(".")[0]}_ktp.jpg`;
+        )}/${KTP_URL}`;
 
         let TEXT_STATUS = "";
 
@@ -191,10 +160,10 @@ function showPbp(PBPS) {
                               }">
                             <!--- <td class="bg-transparent"></td> --->
                             <td colspan="4">
-                              <img loading="lazy" src="${url}" width="100%" id="I${NIK}" class="object-fit-contain" onerror="this.onerror=null; this.src='${urlError}';"/>
+                              <img loading="lazy" src="${url}" width="100%" id="I${NIK}" class="object-fit-contain"/>
                             </td>
                             <td colspan="4">
-                              <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK}" class="zoom-move object-fit-contain" onclick="rotateImage('#K${NIK}')" onerror="this.onerror=null; this.src='${urlKtpError}';"/>
+                              <img loading="lazy" src="${urlKtp}" width="100%" id="K${NIK}" class="zoom-move object-fit-contain" onclick="rotateImage('#K${NIK}')"/>
                             </td>
                             <td>
                             </td>
